@@ -1,14 +1,11 @@
 import React from "react";
 
 function Results(props) {
+  const { image } = props;
   return (
-    <ul className="list-group search-results">
-      {props.results.map(result => (
-        <li key={result} className="list-group-item">
-          <img alt="Book" src={result} className="img-fluid" />
+        <li className="list-group-item">
+          <img alt="Book" src={image} className="img-fluid" />
         </li>
-      ))}
-    </ul>
   );
 }
 

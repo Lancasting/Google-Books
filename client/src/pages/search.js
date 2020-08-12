@@ -1,26 +1,23 @@
 import React, { Component } from "react";
 import API from "../utils/API.js";
+import Results from "../components/results";
 
 
 class Search extends Component {
     state = {
         search: "",
-        results: []
-    }
-    useEffect() {
-        API.getBooks()
-            .then(res => this.setState({
-                books: res.data.results
-            })
-            )
-            .catch(err => console.log(err));
+        books: []
     }
 
     handleInputChange = (event) => {
         event.preventDefault();
-        this.setState({
-            search: event.target.value
-        })
+        API.getGoogleBooks(this.state.search)
+        .then(res => this.setState({books: res.data.items}))
+        .catch(err => console.log(err));
+    }
+
+    componentDidUpdate() {
+        console.log(this.state.books)
     }
 
     render() {
@@ -30,10 +27,13 @@ class Search extends Component {
                 <form>
                     <label>
                         Search for Book:
-        <input type="text" name="name" />
+                    <input type="text" name="Book" onChange={(event) => this.setState({search: event.target.value})} />
                     </label>
-                    <input type="submit" value="Submit" onClick={() => this.handleInputChange()} />
+                    <input type="submit" value="Submit" onClick={this.handleInputChange} />
                 </form>
+                <ul className="list-group search-results">
+                    {this.state.books.map(book => <Results {...book} />)}
+                </ul>
             </div>
         )
     }

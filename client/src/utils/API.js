@@ -3,11 +3,8 @@ const db = require("../models");
 const BASEURL = "https://www.googleapis.com/books/v1/volumes?q="
 
 export default {
-    getGoogleBooks: function() {
-    return axios.get("/api/google/:books", async (req, res) => {
-        const { data } = await axios.get(BASEURL, req.params);
-        res.json(data)
-    });
+    getGoogleBooks: async function(book) {
+        return (await axios.get(BASEURL + book))
     },
     getBooks: function() {
     return axios.get("/api/books", (req, res) => {
