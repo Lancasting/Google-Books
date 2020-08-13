@@ -13,7 +13,7 @@ export default {
         });
     });
     },
-    saveBooks: function() {
+    saveBook: function() {
     axios.post("/api/books", (req, res) => {
         db.Book.create(req.body).then(dbBook => {
             res.json(dbBook);
