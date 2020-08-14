@@ -46,7 +46,7 @@ class Search extends Component {
                     <input type="submit" value="Submit" onClick={this.handleInputChange} />
                 </form>
                 <ul className="list-group search-results">
-                    {this.state.books.map(book => <Card {...book}  saveBook = {this.saveBook(book.id)} />)}
+                    {this.state.books.map(book => <Card {...book} key={book.id}  saveBook = {() => this.saveBook(book.id)} />)}
                 </ul>
             </div>
         )

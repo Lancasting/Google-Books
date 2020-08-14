@@ -11,7 +11,7 @@ class Saved extends Component {
         API.getBooks()
         .then(res => this.setState({books: res.data.items}))
     }
-    handleInputChange3 = (id) => {
+    handleInputChange = (id) => {
         API.deleteBook(id)
         .then(res => API.getBooks())
         .catch(err => console.log(err));
@@ -24,11 +24,10 @@ class Saved extends Component {
         return (
             <div>
             <ul className="list-group search-results">
-                    {this.state.books.map(book => <SavedCard {...book} handleInputChange={this.handleInputChange()} />)}
+                    {this.state.books.map(book => <SavedCard {...book} key={book.id} handleInputChange={this.handleInputChange()} />)}
             </ul>
         </div>
         )
     } 
-
 }
 export default Saved;
