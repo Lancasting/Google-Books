@@ -2,7 +2,7 @@ const router = require("express").Router();
 const db = require("../models");
 
 router.get("/api/books", (req, res) => {
-    db.Book.findall({}).then(dbBook => {
+    db.Book.find({}).then(dbBook => {
         res.json(dbBook);
     });
 });
@@ -16,7 +16,7 @@ router.post("/api/books", (req, res) => {
 
 
 router.delete("/api/books/:id", (req, res) => {
-    db.Book.destroy({
+    db.Book.deleteOne({
         where: {
             id: req.params.id
         }

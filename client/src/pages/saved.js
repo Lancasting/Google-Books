@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import API from "../utils/API.js";
+import API from "../utils/API";
 import { SavedCard } from "../components/savedcard";
 
 
@@ -7,13 +7,23 @@ class Saved extends Component {
     state = {
         books: []
     }
-    componentDidMount() {
+
+    getBooks = () => {
         API.getBooks()
-        .then(res => this.setState({books: res.data.items}))
+        .then(res => 
+        {console.log(res);
+            this.setState({ books: res })
+        }).catch(error => {
+            console.log(error);
+        })
+    }
+
+    componentDidMount() {
+        this.getBooks()
     }
     handleInputChange = (id) => {
         API.deleteBook(id)
-        .then(res => API.getBooks())
+        .then(API.getBooks())
         .catch(err => console.log(err));
     }
 
