@@ -12,8 +12,8 @@ export default {
     saveBook: async function (body) {
        return (await axios.post("/api/books", body)).data
     },
-    deleteBook: async function (id) {
-        return (await axios.delete(`/api/books/${id}`)).data
+    deleteBook: async function (_id) {
+        return (await axios.delete(`/api/books/${_id}`)).data
     }
 };
 

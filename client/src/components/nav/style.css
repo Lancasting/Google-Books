@@ -1,0 +1,19 @@
+.navbar{
+    background: rgba(252, 252, 252, 0) !important;
+}
+
+.navbar-toggler-icon {
+    order:0;
+    float: left;
+  }
+.navbar-link {
+    padding-right: .5rem;
+    padding-left: .5rem;
+}
+.navbar-link:hover {
+    cursor: pointer;
+    color: darkgray;
+}
+a:hover {
+    color: darkgray;
+}

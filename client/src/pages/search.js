@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import API from "../utils/API.js";
-import { Card } from "../components/searchcard/index.js";
+import { SearchCard } from "../components/searchcard/index.js";
 
 
 class Search extends Component {
@@ -46,9 +46,11 @@ class Search extends Component {
                     </label>
                     <input type="submit" value="Submit" onClick={this.handleInputChange} />
                 </form>
-                <ul className="list-group search-results">
-                    {this.state.books.map(book => <Card {...book} key={book.id}  saveBook = {() => this.saveBook(book.id)} />)}
-                </ul>
+                <div className="container">
+                <div className="row">
+                    {this.state.books.map(book => <SearchCard {...book} key={book.id} saveBook = {() => this.saveBook(book.id)} />)}
+                </div>
+                </div>
             </div>
         )
     }

@@ -1,8 +1,8 @@
 import React from "react";
 
-export const Card = (props) => {
+export const SearchCard = (props) => {
     return (
-        <div className="col-sm-3 m-3 card">
+        <div className="col-md-5 m-3 card">
             <img src={props.volumeInfo.imageLinks.smallThumbnail} className="card-img-top" alt={props.title} />
             <div className="card-body">
                 <h4 className="card-title">{props.volumeInfo.title}</h4>

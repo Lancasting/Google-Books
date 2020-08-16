@@ -10,34 +10,34 @@ class Saved extends Component {
 
     getBooks = () => {
         API.getBooks()
-        .then(res => 
-        {console.log(res);
-            this.setState({ books: res })
-        }).catch(error => {
-            console.log(error);
-        })
+            .then(res => {
+                console.log(res);
+                this.setState({ books: res })
+            }).catch(error => {
+                console.log(error);
+            })
     }
 
     componentDidMount() {
         this.getBooks()
     }
-    handleInputChange = (id) => {
-        API.deleteBook(id)
-        .then(API.getBooks())
-        .catch(err => console.log(err));
+    handleDelete = (_id) => {
+        console.log(_id);
+        API.deleteBook(_id)
+            .then(API.getBooks())
+            .catch(err => console.log(err));
     }
 
-    componentDidUpdate() {
-        console.log(this.state.books)
-    }
     render() {
         return (
             <div>
-            <ul className="list-group search-results">
-                    {this.state.books.map(book => <SavedCard {...book} key={book.id} handleInputChange={this.handleInputChange()} />)}
-            </ul>
-        </div>
+                <div className="container">
+                <div className="row">
+                    {this.state.books.map(book => <SavedCard {...book} key={book.id} onClick={() => this.handleDelete(book.id)} />)}
+                </div>
+                </div>
+            </div>
         )
-    } 
+    }
 }
 export default Saved;
