@@ -12,8 +12,10 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 
+const MONGODB_URI = "mongodb://<dbuser>:<dbpassword>@ds143778.mlab.com:43778/heroku_t29lvw1p";
+
 mongoose.connect(
-  process.env.MOGODB_URI || "mongodb://localhost/google_books",
+  process.env.MONGODB_URI || "mongodb://localhost/google_books",
   (error) => {
     if (error) {
       return console.log("Connection Unsuccessful");
