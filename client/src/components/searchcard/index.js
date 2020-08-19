@@ -3,7 +3,7 @@ import React from "react";
 export const SearchCard = (props) => {
     return (
         <div className="col-md-5 m-3 card">
-            <img src={props.volumeInfo.imageLinks.smallThumbnail} className="card-img-top" alt={props.title} />
+            <img src={props.volumeInfo.imageLinks.thumbnail} className="card-img-top" alt={props.title} />
             <div className="card-body">
                 <h4 className="card-title">{props.volumeInfo.title}</h4>
                 <h5 className="card-title">{props.volumeInfo.authors}</h5>
