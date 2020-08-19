@@ -18,7 +18,7 @@ router.post("/api/books", (req, res) => {
 router.delete("/api/books/:id", (req, res) => {
     console.log(req.params.id);
     db.Book.deleteOne({
-            _id: req.params.i
+            _id: req.params.id
     }).then(dbBook => {
         res.json(dbBook);
     });
