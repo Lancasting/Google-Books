@@ -21,9 +21,9 @@ class Saved extends Component {
     componentDidMount() {
         this.getBooks()
     }
-    handleDelete = (_id) => {
-        console.log(_id);
-        API.deleteBook(_id)
+    handleDelete = (id) => {
+        console.log(id);
+        API.deleteBook(id)
             .then(API.getBooks())
             .catch(err => console.log(err));
     }
@@ -33,7 +33,7 @@ class Saved extends Component {
             <div>
                 <div className="container">
                 <div className="row">
-                    {this.state.books.map(book => <SavedCard {...book} key={book.id} onClick={() => this.handleDelete(book.id)} />)}
+                    {this.state.books.map(book => <SavedCard {...book} key={book._id} handleDelete={() => this.handleDelete(book._id)} />)}
                 </div>
                 </div>
             </div>

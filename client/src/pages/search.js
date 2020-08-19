@@ -12,8 +12,8 @@ class Search extends Component {
     handleInputChange = (event) => {
         event.preventDefault();
         API.getGoogleBooks(this.state.search)
-        .then(res => this.setState({books: res.data.items}))
-        .catch(err => console.log(err));
+            .then(res => this.setState({ books: res.data.items }))
+            .catch(err => console.log(err));
     }
 
     saveBook = (id) => {
@@ -26,9 +26,13 @@ class Search extends Component {
             link: savedBook.volumeInfo.infoLink,
             title: savedBook.volumeInfo.title,
         })
-        
+
         // .then(console.log("Book saved!"))
         // .catch(err => console.log(err));
+    }
+
+    viewClick() {
+        console.log("Button Clicked!");
     }
 
     componentDidUpdate() {
@@ -42,14 +46,14 @@ class Search extends Component {
                 <form>
                     <label>
                         Search for Book:
-                    <input type="text" name="Book" onChange={(event) => this.setState({search: event.target.value})} />
+                    <input type="text" name="Book" onChange={(event) => this.setState({ search: event.target.value })} />
                     </label>
                     <input type="submit" value="Submit" onClick={this.handleInputChange} />
                 </form>
                 <div className="container">
-                <div className="row">
-                    {this.state.books.map(book => <SearchCard {...book} key={book.id} saveBook = {() => this.saveBook(book.id)} />)}
-                </div>
+                    <div className="row">
+                        {this.state.books.map(book => <SearchCard {...book} key={book.id} saveBook={() => this.saveBook(book.id)} viewClick={() => this.viewClick} />)}
+                    </div>
                 </div>
             </div>
         )

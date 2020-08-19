@@ -16,10 +16,9 @@ router.post("/api/books", (req, res) => {
 
 
 router.delete("/api/books/:id", (req, res) => {
+    console.log(req.params.id);
     db.Book.deleteOne({
-        where: {
-            id: req.params.id
-        }
+            _id: req.params.i
     }).then(dbBook => {
         res.json(dbBook);
     });
