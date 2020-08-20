@@ -26,17 +26,6 @@ class Search extends Component {
             link: savedBook.volumeInfo.infoLink,
             title: savedBook.volumeInfo.title,
         })
-
-        // .then(console.log("Book saved!"))
-        // .catch(err => console.log(err));
-    }
-
-    viewClick() {
-        console.log("Button Clicked!");
-    }
-
-    componentDidUpdate() {
-        console.log(this.state.books)
     }
 
     render() {

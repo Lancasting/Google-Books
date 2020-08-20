@@ -11,7 +11,6 @@ class Saved extends Component {
     getBooks = () => {
         API.getBooks()
             .then(res => {
-                console.log(res);
                 this.setState({ books: res })
             }).catch(error => {
                 console.log(error);
@@ -22,7 +21,6 @@ class Saved extends Component {
         this.getBooks()
     }
     handleDelete = (id) => {
-        console.log(id);
         API.deleteBook(id)
             .then(API.getBooks())
             .catch(err => console.log(err));
