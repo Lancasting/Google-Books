@@ -26,6 +26,7 @@ class Search extends Component {
             link: savedBook.volumeInfo.infoLink,
             title: savedBook.volumeInfo.title,
         })
+        alert("Book Saved!");
     }
 
     render() {
