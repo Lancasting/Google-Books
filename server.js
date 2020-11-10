@@ -12,7 +12,7 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 
-const MONGODB_URI = "mongodb://<user>:<user123>@ds143778.mlab.com:43778/heroku_t29lvw1p";
+const MONGODB_URI = "mongodb+srv://<user>:<user123>@cluster-t29lvw1p.08eep.mongodb.net/heroku_t29lvw1p?retryWrites=true&w=majority";
 
 mongoose.connect(
   process.env.MONGODB_URI || "mongodb://localhost/google_books",
